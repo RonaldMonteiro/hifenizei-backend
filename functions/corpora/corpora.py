@@ -1,4 +1,7 @@
-import nltk 
+import nltk
+
+nltk.download('punkt')
+
 
 with open('functions/corpora/prefixes.txt', mode='r', encoding='utf-8') as corporaPrefixes:
     prefixesReading = corporaPrefixes.read()
