@@ -13,6 +13,13 @@ from functions.answerComplet import answerExtended
 
 app = Flask(__name__)
 
+@app.route('/')
+def view0 ():
+    return 'hello'
+
+@app.route('/dt')
+def view0 ():
+    return 'hello2'
 
 @app.route('/data')
 def view ():
