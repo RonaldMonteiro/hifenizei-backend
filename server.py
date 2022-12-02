@@ -18,7 +18,7 @@ def view0 ():
     return 'hello'
 
 @app.route('/dt')
-def view0 ():
+def view8 ():
     return 'hello2'
 
 @app.route('/data')
