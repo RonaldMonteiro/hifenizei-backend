@@ -1,0 +1,23 @@
+[33mcommit 9413e90211f04475d27429575186fc14cb3c5198[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: RonaldMonteiro <ronaldmonteiro.pro@gmail.com>
+Date:   Thu Dec 1 22:10:41 2022 -0300
+
+    add url corpora
+
+[33mcommit 51702a98c27cfccd32f04198ef53f61a28ac0845[m
+Author: RonaldMonteiro <ronaldmonteiro.pro@gmail.com>
+Date:   Thu Dec 1 21:49:26 2022 -0300
+
+    add pip
+
+[33mcommit e87f8d1d008a940cafa7180c7c32f6b242409b46[m
+Author: RonaldMonteiro <ronaldmonteiro.pro@gmail.com>
+Date:   Thu Dec 1 21:41:58 2022 -0300
+
+    add gunicorn
+
+[33mcommit 83465d63415e538ad0f5723c4194102efd36b873[m
+Author: RonaldMonteiro <ronaldmonteiro.pro@gmail.com>
+Date:   Thu Dec 1 20:51:19 2022 -0300
+
+    add flask
