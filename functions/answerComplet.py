@@ -1,6 +1,8 @@
 import nltk
 from .corpora.corpora import *
 
+nltk.download('punkt')
+
 def answerExtended(misspelledWord):
 
 

@@ -1,6 +1,7 @@
 import nltk
 from .corpora.corpora import *
 
+nltk.download('punkt')
 
        
 
