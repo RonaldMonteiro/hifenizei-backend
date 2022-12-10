@@ -6,7 +6,7 @@ import nltk.tokenize
 
 from flask import Flask, request, jsonify
 from functions.hifenizei import hifenizei
-from functions.answerComplet import answerExtended
+from functions.answerComplet import answer
 
 
 
@@ -30,10 +30,11 @@ def view ():
     return response
 
 
+
 @app.route('/datas')
 def view2 ():
     word2 = request.args.get('word2')
-    x = answerExtended(word2)
+    x = answer(word2)
     response = jsonify({'word2': x})
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response

@@ -1,7 +1,7 @@
 import nltk
 from .corpora.corpora import *
 
-nltk.download('punkt')
+# nltk.download('punkt')
 
        
 
@@ -18,7 +18,7 @@ def hifenizei(misspelledWord):
             return misspelledWord.split()
 
     tokenWords = tokenizer(misspelledWord)
-
+    print(tokenWords)
     def validation(misspelledWord):
             for prefix in allPrefixes:
                 if misspelledWord.startswith(prefix):   
@@ -32,13 +32,15 @@ def hifenizei(misspelledWord):
     def normalization(misspelledWord):
         if validationWord == 'error':
             return 'error'
-        elif len(validationWord) >= 2:
+        elif len(tokenWords) == 1:
             return validationWord
-
+        elif len(tokenWords) >= 2:
+            return tokenWords
 
     words = normalization(validationWord)
+    print(words)
 
-    def hyphenating(wordss):
+    def hyphenating(words):
         if misspelledWord == 'email' or misspelledWord == 'e mail' or misspelledWord == 'e-mail':
             return 'e-mail'
         else:
@@ -59,8 +61,10 @@ def hifenizei(misspelledWord):
 
 
         for prefix in listExceptionNormalization:
-            if misspelledWord.startswith(prefix[0]):
+            if misspelledWord.startswith(prefix[0]) and misspelledWord.endswith(prefix[1]):
+                print(prefix)
                 ending = misspelledWord.replace(prefix[0], '')
+                print(ending)
                 if ending == prefix[1]:
                     return prefix[0] + '-' + ending
                 else:
@@ -81,9 +85,15 @@ def hifenizei(misspelledWord):
                 return 'error'      
         
         elif words[0] in prefixCo:
-            if words[1][0] =='r':
+            if words[1][0] == 'r' and words[1][1] == 'r':
+                correctWord = words[0] + words[1]
+                return correctWord 
+            elif words[1][0] =='r':
                 correctWord = words[0] +'r'+ words[1]
                 return correctWord
+            elif words[1][0] == 's' and words[1][1] == 's':
+                correctWord = words[0] + words[1]
+                return correctWord 
             elif words[1][0] == 's':
                 correctWord = words[0] + 's' + words[1]
                 return correctWord
@@ -185,11 +195,26 @@ def hifenizei(misspelledWord):
             elif words[1][0] == 'h':
                 correctWord=words[0] + '-' + words[1]
                 return correctWord
+            
+            elif words[0][-1] in vowels and words[1][0] == 'r' and words[1][1] == 'r':
+                # if words[1][0] == 'r' and words[1][1] == 'r':
+                correctWord = words[0] + words[1]
+                return correctWord 
+
             elif words[0][-1] in vowels and words[1][0] == 'r':
                 correctWord=words[0] + 'r' + words[1]
+
                 return correctWord
+
+            elif words[0][-1] in vowels and words[1][0] == 's' and words[1][1] == 's':
+                # if words[1][0] == 's' and words[1][1] == 's':
+                correctWord = words[0] + words[1]
+                return correctWord   
+
+
             elif words[0][-1] in vowels and words[1][0] == 's':
                 correctWord=words[0] + 's' + words[1]
+                print(correctWord)
                 return correctWord
             elif words[0][-1] in vowels and words[1][0] in vowels:
                 if words[0][-1] != words[1][0]:
@@ -224,3 +249,7 @@ def hifenizei(misspelledWord):
     
     return answer
 
+
+
+# x = hifenizei('contagotas')
+# print(x)
