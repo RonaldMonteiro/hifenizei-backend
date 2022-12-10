@@ -3,27 +3,27 @@ import nltk
 nltk.download('punkt')
 
 
-with open('backend/functions/corpora/prefixes.txt', mode='r', encoding='utf-8') as corporaPrefixes:
+with open('functions/corpora/prefixes.txt', mode='r', encoding='utf-8') as corporaPrefixes:
     prefixesReading = corporaPrefixes.read()
 
 prefixes = nltk.tokenize.word_tokenize(prefixesReading)
 
-with open('backend/functions/corpora/pseudoprefixes.txt', mode='r', encoding='utf-8') as corporaPseudoprefixes:
+with open('functions/corpora/pseudoprefixes.txt', mode='r', encoding='utf-8') as corporaPseudoprefixes:
     pseudoprefixesReading = corporaPseudoprefixes.read()
 
 pseudoprefixes = nltk.tokenize.word_tokenize(pseudoprefixesReading)
 
-with open('backend/functions/corpora/prefixes_hyphenated.txt', mode='r', encoding='utf-8') as corporaPrefixesHyphenated:
+with open('functions/corpora/prefixes_hyphenated.txt', mode='r', encoding='utf-8') as corporaPrefixesHyphenated:
     prefixesHyphenatedReading = corporaPrefixesHyphenated.read()
 
 prefixesHyphenated = nltk.tokenize.word_tokenize(prefixesHyphenatedReading)
 
-with open('backend/functions/corpora/prefixes_small.txt', mode='r', encoding='utf-8') as corpora_prefixesSmall:
+with open('functions/corpora/prefixes_small.txt', mode='r', encoding='utf-8') as corpora_prefixesSmall:
     prefixesSmall_reading = corpora_prefixesSmall.read()
 
 prefixesSmall = nltk.tokenize.word_tokenize(prefixesSmall_reading)
 
-with open('backend/functions/corpora/compound_words.txt', mode='r', encoding='utf-8') as corpora_compound_word:
+with open('functions/corpora/compound_words.txt', mode='r', encoding='utf-8') as corpora_compound_word:
     compound_word_reading = corpora_compound_word.read()
 
 compound_words = nltk.tokenize.word_tokenize(compound_word_reading)
@@ -39,7 +39,7 @@ def part_compound_words(compoundWordsTuplas):
 wordsParts = part_compound_words(compoundWordsTuplas)
 
 
-with open('backend/functions/corpora/compound_copy.txt', mode='r', encoding='utf-8') as corpora_compound_copy:
+with open('functions/corpora/compound_copy.txt', mode='r', encoding='utf-8') as corpora_compound_copy:
     compound_copy_reading = corpora_compound_copy.read()
 
 compound_copy = nltk.tokenize.word_tokenize(compound_copy_reading)
@@ -74,7 +74,7 @@ prefixRe + pseudoprefixes + prefixesHyphenated + prefixesSmall +
 prefixSpecial + wordsParts)
 
 listException = []
-with open('backend/functions/corpora/compound_words.txt', mode='r', encoding='utf-8') as x:
+with open('functions/corpora/compound_words.txt', mode='r', encoding='utf-8') as x:
     xx = x.readlines()
     for line in xx:
         if '#' in line[0]:
@@ -89,7 +89,7 @@ for word in listExceptionClean:
     listExceptionNormalization.append(word.split('/'))
 
 listPhrase = []
-with open('backend/functions/corpora/compound_words.txt', mode='r', encoding='utf-8') as x:
+with open('functions/corpora/compound_words.txt', mode='r', encoding='utf-8') as x:
     xx = x.readlines()
     for line in xx:
         if '*' in line[0]:
@@ -105,7 +105,7 @@ for word in listPhraseClean:
 
 
 listRepet = []
-with open('backend/functions/corpora/compound_words.txt', mode='r', encoding='utf-8') as x:
+with open('functions/corpora/compound_words.txt', mode='r', encoding='utf-8') as x:
     xx = x.readlines()
     for line in xx:
         if '@' in line[0]:
