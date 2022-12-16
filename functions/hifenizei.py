@@ -83,7 +83,7 @@ def hifenizei(misspelledWord):
 
         for element in listRepetNormalization:
             if misspelledWord.startswith(element[0]):
-                return element[0] +'-'+ element[0]
+                return element[0] + '-' + element[0]
             else:
                 pass
 
