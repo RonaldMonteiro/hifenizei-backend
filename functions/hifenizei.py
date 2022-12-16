@@ -3,8 +3,6 @@ from .corpora.corpora import *
 
 nltk.download('punkt')
 
-       
-
 
 def hifenizei(misspelledWord):
 
@@ -18,31 +16,68 @@ def hifenizei(misspelledWord):
             return misspelledWord.split()
 
     tokenWords = tokenizer(misspelledWord)
-    print(tokenWords)
     def validation(misspelledWord):
             for prefix in allPrefixes:
-                if misspelledWord.startswith(prefix):   
+                if misspelledWord.startswith(prefix): 
                     ending = misspelledWord.replace(prefix, '')
                     return [prefix, ending]
+                    
             else:
                 return 'error'
+           
         
     validationWord = validation(misspelledWord)
+    print(validationWord)
+
+
+    def validationSecond(validationWords):
+        if validationWord != 'error':
+            for pala in prefixesSeconds:
+                if misspelledWord.endswith(pala):
+                    return validationWord
+                
+                    
+            else:
+                return 'error'
+        else:
+            return 'error'
+
+    validationWordSecond = validationSecond(validationWord)
+    print(validationWordSecond)
+
+    # def validationTree(validationWord):
+    #     if validationWord == 'error':
+    #         for pala in WordsSeconds:
+    #             if misspelledWord.endswith(pala):
+    #                 return validationWord
+                    
+    #         else:
+    #             return 'error'
+    #     else:
+    #         return validationWordSecond
+
+
+    # validationWordTree = validationTree(validationWordSecond)
+    # print(validationWordTree)
 
     def normalization(misspelledWord):
-        if validationWord == 'error':
+        if validationWordSecond == 'error':
             return 'error'
         elif len(tokenWords) == 1:
-            return validationWord
+            return validationWordSecond
         elif len(tokenWords) >= 2:
             return tokenWords
 
-    words = normalization(validationWord)
+    words = normalization(validationWordSecond)
     print(words)
-
     def hyphenating(words):
         if misspelledWord == 'email' or misspelledWord == 'e mail' or misspelledWord == 'e-mail':
             return 'e-mail'
+        else:
+            pass
+
+        if misspelledWord == 'obra-prima' or misspelledWord == 'obra prima' or misspelledWord == 'obraprima':
+            return 'obra-prima'
         else:
             pass
 
@@ -62,9 +97,8 @@ def hifenizei(misspelledWord):
 
         for prefix in listExceptionNormalization:
             if misspelledWord.startswith(prefix[0]) and misspelledWord.endswith(prefix[1]):
-                print(prefix)
                 ending = misspelledWord.replace(prefix[0], '')
-                print(ending)
+                print(prefix[1])
                 if ending == prefix[1]:
                     return prefix[0] + '-' + ending
                 else:
@@ -135,7 +169,7 @@ def hifenizei(misspelledWord):
                 correctWord= words[0]+'-'+words[1]
                 return correctWord
             elif words[1][0] == 'r':
-                correctWord= words[0]+'-'+words[1]
+                correctWord= words[0]+'-'+ words[1]
                 return correctWord
             elif 'human' in words[1]:
                 correctWord = words[0] + words[1][1:]
@@ -203,8 +237,8 @@ def hifenizei(misspelledWord):
 
             elif words[0][-1] in vowels and words[1][0] == 'r':
                 correctWord=words[0] + 'r' + words[1]
-
                 return correctWord
+
 
             elif words[0][-1] in vowels and words[1][0] == 's' and words[1][1] == 's':
                 # if words[1][0] == 's' and words[1][1] == 's':
@@ -214,8 +248,9 @@ def hifenizei(misspelledWord):
 
             elif words[0][-1] in vowels and words[1][0] == 's':
                 correctWord=words[0] + 's' + words[1]
-                print(correctWord)
                 return correctWord
+
+
             elif words[0][-1] in vowels and words[1][0] in vowels:
                 if words[0][-1] != words[1][0]:
                     correctWord=words[0]+words[1]
@@ -235,11 +270,10 @@ def hifenizei(misspelledWord):
                 correctWord=words[0] + words[1]
                 return correctWord
 
-        else:
+        elif words == 'error':
             return 'error'
 
     correctWord=hyphenating(words)
-
 
     if correctWord.startswith('mal') and correctWord[3] in vowels:
         l = correctWord.replace('mal', '')
@@ -247,9 +281,11 @@ def hifenizei(misspelledWord):
     else:
         answer = correctWord
     
+
+
     return answer
 
-
-
-# x = hifenizei('contagotas')
+# x = hifenizei('micro jkajsajs')
 # print(x)
+
+

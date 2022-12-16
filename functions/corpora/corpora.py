@@ -119,4 +119,18 @@ listRepetNormalization =[]
 for word in listRepetClean:
     listRepetNormalization.append(word.split('/'))
 
-print(listExceptionNormalization)
+
+with open('functions/corpora/prefixesSeconds.txt', mode='r', encoding='utf-8') as prefixesSecondsCorpora:
+    prefixesSecondsReading = prefixesSecondsCorpora.read()
+
+
+
+prefixesSecondss = nltk.tokenize.word_tokenize(prefixesSecondsReading)
+
+with open('functions/corpora/wordsSeconds.txt', mode='r', encoding='utf-8') as WordsSecondsCorpora:
+    WordsSecondsReading = WordsSecondsCorpora.read()
+
+WordsSeconds = nltk.tokenize.word_tokenize(WordsSecondsReading)
+
+prefixesSeconds = prefixesSecondss + WordsSeconds
+
