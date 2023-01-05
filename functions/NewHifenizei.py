@@ -96,7 +96,7 @@ def hifenizei(entry):
                     data = [word, ending[1:]]
                     return data            
             else:
-                return 'no'
+                return 'error'
             # else:
             #     data = 'error validation compound'
             #     return data
