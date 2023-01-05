@@ -5,9 +5,10 @@ import nltk.tag
 import nltk.tokenize
 
 from flask import Flask, request, jsonify
-from functions.hifenizei import hifenizei
+from functions.NewHifenizei import hifenizei
 from functions.answerComplet import answer
 
+nltk.download('punkt')
 
 
 
@@ -15,7 +16,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def view0 ():
-    return 'helloFinal'
+    return 'hifeniz.ei - backend'
 
 @app.route('/dt')
 def view8 ():

@@ -17,7 +17,7 @@ def answer(misspelledWord):
     tokenWords = tokenizer(misspelledWord)
     print(tokenWords)
     def validation(misspelledWord):
-            for prefix in allPrefixes:
+            for prefix in all_words:
                 if misspelledWord.startswith(prefix):   
                     ending = misspelledWord.replace(prefix, '')
                     return [prefix, ending]
@@ -47,7 +47,7 @@ def answer(misspelledWord):
         else:
             pass
 
-        for element in listRepetNormalization:
+        for element in list_repet:
             if misspelledWord.startswith(element[0]):       
                 text = element[0]+'-'+element[1]         
                 paragraf = f'Algumas palavras compostas, como "{text}", são separadas convencionalmente por hífen para manter a noção de composição semântica e sintagmática, sem haver uma regra que rege necessariamente o caso. Mas pode ser que a palavra represente um topônimo ou uma espécie de planta ou animal. Independente de seu enquadramento, sempre serão grafadas com hífen.'
@@ -56,7 +56,7 @@ def answer(misspelledWord):
                 pass
 
         if len(tokenWords) ==3:
-            for l in listPhraseNormalization:
+            for l in list_phrase:
                 if tokenWords[0] == l[0] and tokenWords[1] == l[1] and tokenWords[2] == l[2]:
                     text = l[0]+'-'+l[1]+'-'+l[2]         
                     paragraf = f'Algumas palavras compostas, como "{text}", são separadas convencionalmente por hífen para manter a noção de composição semântica e sintagmática, sem haver uma regra que rege necessariamente o caso. Mas pode ser que a palavra represente um topônimo ou uma espécie de planta ou animal. Independente de seu enquadramento, sempre serão grafadas com hífen.'
@@ -65,7 +65,7 @@ def answer(misspelledWord):
             pass
 
 
-        for prefix in listExceptionNormalization:
+        for prefix in list_exception:
             if misspelledWord.startswith(prefix[0]):
                 ending = misspelledWord.replace(prefix[0], '')
                 if ending[1:] == prefix[1]:
@@ -84,8 +84,8 @@ def answer(misspelledWord):
         elif '-' in words:
             paragraf = f'Algumas palavras compostas, como "{validationWord}", são separadas convencionalmente por hífen para manter a noção de composição semântica e sintagmática, sem haver uma regra que rege necessariamente o caso. Mas pode ser que a palavra represente um topônimo ou uma espécie de planta ou animal. Independente de seu enquadramento, sempre serão grafadas com hífen.'
             return paragraf
-        elif words[0] in wordsParts:
-            for (p, e) in compoundWordsTuplas:
+        elif words[0] in words_parts:
+            for (p, e) in compound_words_tuplas:
                 if words[0] in p and words[1] in e.lower():
                     text = words[0] +'-'+words[1]
                     paragraf = f'Algumas palavras compostas, como "{text}", são separadas convencionalmente por hífen para manter a noção de composição semântica e sintagmática, sem haver uma regra que rege necessariamente o caso. Mas pode ser que a palavra represente um topônimo ou uma espécie de planta ou animal. Independente de seu enquadramento, sempre serão grafadas com hífen.'
@@ -93,52 +93,52 @@ def answer(misspelledWord):
             else:
                 return 'error'      
         
-        elif words[0] in prefixCo:
+        elif words[0] in prefix_co:
             paragraf = 'Palavras iniciadas por prefixo “co” nunca levarão hífen, mesmo nos casos em que o segundo elemento começar com “h” ou “o”. No entanto, quando o segundo elemento começar por “r” ou “s”, a palavra terá essas consoantes duplicadas. Em todas as situações as palavras serão grafadas juntas.'
             return paragraf
 
 
-        elif words[0] in prefixRe:
+        elif words[0] in prefix_re:
             paragraf = 'Palavras iniciadas por prefixo “re” nunca levarão hífen. Em todas as situações as palavras serão grafadas juntas.'
             return paragraf
             
-        elif words[0] in prefixDesIn:
+        elif words[0] in prefixes_des_in:
             paragraf = f'Palavras iniciadas por prefixo “{words[0]}” nunca levarão hífen. Em todas as situações as palavras serão grafadas juntas.'
             return paragraf
             
-        elif words[0] in prefixBem:
+        elif words[0] in prefix_bem:
             paragraf = 'Palavras compostas iniciadas pelo prefixo “bem” sempre levarão hífen.  Há algumas exceções como as palavras benfeitoria, benfeito, benfeitor.'
             return paragraf
             
-        elif words[0] in prefixNao:
+        elif words[0] in prefix_nao:
             paragraf = 'Palavras que contenham o “não” como prefixo nunca levarão hífen. Em todas as situações as palavras serão grafadas separadas.'
             return paragraf
 
-        elif words[0] in prefixSubSob:
+        elif words[0] in prefixes_sub_sob:
             paragraf = f'Palavras compostas iniciadas pelo prefixo “{words[0]}” sempre levarão hífen quando o segundo elemento começar com “b” ou “r”. Mas se começar com “h”, poderá a palavra tanto ser hifenizada como grafada junta e com a omissão da letra “h”. Nas demais situações as palavras serão grafadas juntas. '
             return paragraf
                 
-        elif words[0] in prefixesSmall:
+        elif words[0] in prefixes_small:
             paragraf = f'Palavras compostas iniciadas pelo prefixo “{words[0]}” sempre levarão hífen quando o segundo elemento iniciar com “r”. Nas demais situações as palavras serão grafadas juntas. '
             return paragraf
             
-        elif words[0] in pseudoprefixesNumber:
+        elif words[0] in pseudoprefixes_number:
             paragraf = f'Palavras compostas iniciadas pelo prefixo “{words[0]}” nunca levarão hífen. Em todas as situações as palavras serão grafadas juntas. '
             return paragraf
             
-        elif words[0] in prefixEr:
+        elif words[0] in prefixes_er:
             paragraf = f'Palavras compostas iniciadas pelo prefixo “{words[0]}” sempre levarão hífen quando o segundo elemento iniciar com “h” ou “r”.  Nas demais situações as palavras serão grafadas juntas. '
             return paragraf
                     
-        elif words[0] in prefixCircumPan:
+        elif words[0] in prefixes_circum_pan:
             paragraf = f'Palavras compostas iniciadas pelo prefixo “{words[0]}” sempre levarão hífen quando o segundo elemento iniciar com “h”, “m”, “n” ou vogal. Nas demais situações as palavras serão grafadas juntas. '
             return paragraf
             
-        elif words[0] in prefixesHyphenated:
+        elif words[0] in prefixes_hyphenated:
             paragraf = f'Palavras compostas iniciadas pelo prefixo “{words[0]}” sempre levarão hífen. Em nenhuma situação as palavras serão grafadas juntas ou separadas.  '
             return paragraf
 
-        elif words[0] in prefixes or pseudoprefixes:
+        elif words[0] in prefixes_default or pseudoprefixes:
             if words[0][-1] == words[1][0]:
                 paragraf = f'Palavras compostas iniciadas pelo prefixo “{words[0]}” sempre levarão hífen quando o segundo elemento iniciar com a mesma vogal que termina o primeiro. Nos casos em que as letras forem diferentes, as palavras serão grafadas juntas.  '
                 return paragraf
@@ -155,7 +155,7 @@ def answer(misspelledWord):
                 if words[0][-1] != words[1][0]:
                     paragraf = f'Palavras compostas iniciadas pelo prefixo “{words[0]}” nunca levarão hífen quando o segundo elemento iniciar com uma vogal diferente da vogal que termina o primeiro. Nos casos em que as letras forem iguais, as palavras serão grafadas com hífen.'
                     return paragraf
-            elif words[0] in prefixSpecial:
+            elif words[0] in prefix_mal:
                 paragraf = f'Palavras compostas iniciadas pelo advérbio “{words[0]}” sempre levarão hífen quando o segundo elemento iniciar por “h”, “l” ou vogal. Nas demais situações as palavras serão grafadas juntas. '
                 return paragraf        
             else:
@@ -172,3 +172,5 @@ def answer(misspelledWord):
 
     return answerText
 
+x = answer('malestar')
+print(x)

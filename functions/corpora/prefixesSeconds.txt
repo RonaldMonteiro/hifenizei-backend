@@ -1297,6 +1297,8 @@ proteção
 salário
 
 ônibus
+ôceanico
+ôceanica
 
 
 balística
@@ -1955,7 +1957,7 @@ processador
 habitat
 hematrócito
 hênrio
-henry (enri)
+henry
 heterogenias
 heterogênico
 história
@@ -1991,7 +1993,7 @@ jardim
 mundo
 quadro
 vestido
-
+relação
 
 rádio
 ralador
@@ -2003,4 +2005,27 @@ saia
 satélite
 série
 submarino
+
+oceânica
+oceânico
+organizacional
+hilo
+
+américa
+apêndice
+atlântico
+céfalo
+crânio
+economia
+estrutura
+morfia
+
+região
+regional
+renal
+rino
+ristema
+rístole
+
+
 
