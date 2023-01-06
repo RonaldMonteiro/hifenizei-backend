@@ -3,7 +3,7 @@ import nltk
 nltk.download('punkt')
 
 
-with open('functions/functions/corpora/prefixes.txt', mode='r', encoding='utf-8') as corporaPrefixes:
+with open('functions/corpora/prefixes.txt', mode='r', encoding='utf-8') as corporaPrefixes:
     prefixesReading = corporaPrefixes.read()
 
 with open('functions/corpora/pseudoprefixes.txt', mode='r', encoding='utf-8') as corporaPseudoprefixes:
@@ -127,7 +127,7 @@ for word in listRepetClean:
     list_repet.append(word.split('/'))
 
 
-with open('functions/functions/corpora/prefixesSeconds.txt', mode='r', encoding='utf-8') as prefixesSecondsCorpora:
+with open('functions/corpora/prefixesSeconds.txt', mode='r', encoding='utf-8') as prefixesSecondsCorpora:
     prefixesSecondsReading = prefixesSecondsCorpora.read()
 
 
