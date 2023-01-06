@@ -6,7 +6,7 @@ nltk.download('punkt')
 with open('functions/functions/corpora/prefixes.txt', mode='r', encoding='utf-8') as corporaPrefixes:
     prefixesReading = corporaPrefixes.read()
 
-with open('functions/functions/corpora/pseudoprefixes.txt', mode='r', encoding='utf-8') as corporaPseudoprefixes:
+with open('functions/corpora/pseudoprefixes.txt', mode='r', encoding='utf-8') as corporaPseudoprefixes:
     pseudoprefixesReading = corporaPseudoprefixes.read()
 
 with open('functions/corpora/prefixes_hyphenated.txt', mode='r', encoding='utf-8') as corporaPrefixesHyphenated:
