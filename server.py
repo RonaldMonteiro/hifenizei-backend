@@ -25,7 +25,8 @@ def view8 ():
 @app.route('/data')
 def view ():
     word = request.args.get('word')
-    x = hifenizei(word)
+    word2 = word.lower()
+    x = hifenizei(word2)
     response = jsonify({'word': x})
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
